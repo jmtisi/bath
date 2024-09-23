@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+void printBranches(int width) {
+    int spaces = width / 2;
+    for (int i = 1; i <= width; i += 2) {
+        for (int j = 0; j < spaces; j++) {
+            printf(" ");
+        }
+        for (int j = 0; j < i; j++) {
+            printf("*");
+        }
+        printf("\n");
+        spaces--;
+    }
+}
+
+void printTrunk(int width, int trunkLength) {
+    int spaces = (width - 3) / 2;
+    for (int i = 0; i < trunkLength; i++) {
+        for (int j = 0; j < spaces; j++) {
+            printf(" ");
+        }
+        printf("***\n");
+    }
+}
+
+void printTree(int width, int trunkLength) {
+    printBranches(width);
+    printTrunk(width, trunkLength);
+}
+
+int main(void) {
+    printTree(9, 4);
+    return 0;
+}
