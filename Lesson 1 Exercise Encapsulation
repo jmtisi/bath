@@ -1,19 +1,19 @@
 #include <stdio.h>
 
-void squareMultTable(int n, int start, int end) {
-    for (int i = start; i <= end; i++) {
+void squareMultTable(int n, int high) {
+    for (int i = 1; i <= high; i++) {
         printf("%d\t", n * i);
     }
     printf("\n");
 }
 
-void print_tables(int start, int end) {
-    for (int i = start; i <= end; i++) {
-        squareMultTable(i, start, end);
+void print_tables(int high) {
+    for (int i = 1; i <= high; i++) {
+        squareMultTable(i, high);
     }
 }
 
 int main(void) {
-    print_tables(2, 6);
+    print_tables(9);
     return 0;
 }
