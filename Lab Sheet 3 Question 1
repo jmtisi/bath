@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+
+int hexToDec(char hex[]) {
+    int len = strlen(hex);
+    int base = 1; // 16^0
+    int dec_val = 0;
+
+    for (int i = len - 1; i >= 0; i--) {
+        if (hex[i] >= '0' && hex[i] <= '9') {
+            dec_val += (hex[i] - '0') * base;
+        } else if (hex[i] >= 'A' && hex[i] <= 'F') {
+            dec_val += (hex[i] - 'A' + 10) * base;
+        } else if (hex[i] >= 'a' && hex[i] <= 'f') {
+            dec_val += (hex[i] - 'a' + 10) * base;
+        }
+        base *= 16;
+    }
+
+    return dec_val;
+}
+
+int main(void) {
+    char hex[4] = "FF3";
+    printf("The hex value %s is %d in decimal\n", hex, hexToDec(hex));
+    return 0;
+}
