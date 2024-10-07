@@ -1,0 +1,59 @@
+public class Week5Lesson2 {
+  public static void main(String[] args) {
+    Week5Lesson2 exercise = new Week5Lesson2();
+
+    // Print "Hello World!"
+    System.out.println("Hello World!");
+
+    // Testing isModThree method
+    System.out.println("9 is divisible by 3: " + exercise.isModThree(9)); // true
+    System.out.println("10 is divisible by 3: " + exercise.isModThree(10)); // false
+
+    // Testing recursive multiply method and changing output format
+    System.out.println("3 * 4 = " + exercise.multiply(3, 4)); // 12
+    System.out.println("5 * 0 = " + exercise.multiply(5, 0)); // 0  
+    System.out.println("7 * 1 = " + exercise.multiply(7, 1)); // 7
+
+    // Testing fibonacci method and changing output format
+    System.out.println("Fibonacci 1 = " + exercise.fib(1)); // 1
+    System.out.println("Fibonacci 2 = " + exercise.fib(2)); // 1
+    System.out.println("Fibonacci 4 = " + exercise.fib(4)); // 3
+    System.out.println("Fibonacci 6 = " + exercise.fib(6)); // 8
+  }
+
+  // Method which returns true if a number is divisible by 3 and false if it is not
+  public boolean isModThree(int n) {
+    return n % 3 == 0; // True if remainder is 0 when divided by 3
+  }
+
+  // Recursive method which performs multiplication of two numbers without using the inbuilt * sign
+  public int multiply(int n, int by) {
+    if (by == 0) { // Base case: if multiplier is 0, return 0
+      return 0;
+    } else if (by > 0) { // Recursive case: n + multiply(n, by-1)
+      return n + multiply(n, by - 1);
+    } else { // Handle negative numbers
+      return -multiply(n, -by);
+    }
+  }
+
+  /*
+   * Method to calculate the nth Fibonacci term using iteration.
+   * The first two terms of the Fibonacci sequence are 1, 1.
+   */
+  public int fib(int term) {
+    if (term == 1 || term == 2) {
+      return 1; // Base cases for first and second term
+    }
+    
+    int first = 1, second = 1, result = 0;
+    
+    for (int i = 3; i <= term; i++) { // Iterating from 3rd term onward
+      result = first + second; // Calculate next term
+      first = second; // Move first pointer
+      second = result; // Move second pointer
+    }
+    
+    return result; // Return nth Fibonacci term
+  }
+}
